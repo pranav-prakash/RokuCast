@@ -1,0 +1,14 @@
+[
+ {
+		"title": "A Different Kind of Browser",
+		"description": "What’s Mozilla all about? Why are we doing this? We’re glad you asked.",
+		"poster": "pkg://images/different-kind-of-browser.jpg",
+		"url": "https://videos-cdn.mozilla.net/brand/Mozilla_Firefox_Manifesto_v0.2_640.mp4"
+	},
+	{
+		"title": "Firefox for Mobile is Here!",
+		"description": "In fact, it’s anywhere you are. That’s what makes it so awesome.",
+		"poster": "pkg://images/fx-mobile-greatday.jpg",
+		"url": "https://videos-cdn.mozilla.net/serv/marketing/firefox4/Mobile-launch-greatday640.mp4"
+	}            
+]
