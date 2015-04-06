@@ -29,6 +29,4 @@ Works on nearly all websites utilizing an html5 video player
 
 ## Bugs/Todo:
 
-Currently does not support YouTube
-
 Requires manual entry of roku ip address
