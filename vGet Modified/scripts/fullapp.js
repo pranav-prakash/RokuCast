@@ -38,7 +38,7 @@ angular.module("vget.AppDev", ["ngRoute", "vget.ui", "vget.defaultDetector", "w6
 
         function e(a) {
             var b = document.createElement("a");
-            return b.href = a, /(\.youtube\.com)|(\.googlevideo.com)$/i.test(b.host)
+            return false
         }
 
         function f(a, b) {
@@ -251,7 +251,7 @@ angular.module("vget.AppDev", ["ngRoute", "vget.ui", "vget.defaultDetector", "w6
             return b ? [b[1], b[2]] : [a, ""]
         }, a.isYoutube = function (a) {
             var b = angular.element("<a></a>")[0];
-            return b.href = a, /(\.youtube\.com)|(\.googlevideo.com)$/i.test(b.host)
+            return false
         }, a
     }), angular.module("vget.defaultDetector", ["w69b.chromeExt"])
     .factory("defaultDetector", ["chromeTabs", "$rootScope", function (a, b) {
