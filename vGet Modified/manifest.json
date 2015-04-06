@@ -7,11 +7,11 @@
          "38": "images/icon38.png"
       },
       "default_popup": "index.html",
-      "default_title": "vGet - download videos"
+      "default_title": "RokuCast"
    },
    "content_security_policy": "script-src 'self' http://localhost:9008 https://www.google-analytics.com; object-src 'self'",
    "default_locale": "en",
-   "description": "__MSG_application_description__",
+   "description": "Cast HTML5 Videos to your Roku",
    "icons": {
       "128": "images/icon128.png",
       "16": "images/icon16.png",
@@ -19,7 +19,8 @@
    },
    "manifest_version": 2,
    "minimum_chrome_version": "31",
-   "name": "vGet Extension (Video Downloader, DLNA)",
+   "name": "RokuCast",
+   "options_page": "options.html",
    "optional_permissions": [  ],
    "permissions": [ "\u003Call_urls>", "downloads", "tabs" ],
    "version": "0.1.10"
