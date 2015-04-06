@@ -21,6 +21,12 @@ Install the vGet extension in google chrome by going to chrome -> preferences ->
 
 Once installed, navigate to any site containing html5 content [this site](https://people.mozilla.org/~mfinkle/casting/test.html) for example, and you will see a brown download icon appear in the URL bar. Click on that, select the video to cast, and enter the IP address for your roku.
 
+## Supported Formats / Limitations
+
+Supports mp4 videos (which is the vast majority of html5 content)
+
+Works on nearly all websites utilizing an html5 video player
+
 ## Bugs/Todo:
 
 Currently does not support YouTube
