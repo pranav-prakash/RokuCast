@@ -1,18 +1,18 @@
 # RokuCast
 Cast videos from chrome to roku
 
+Comprised of a modified vGet extension and modified firefox cast app.
 
-Requires 2 things:
-
-Modified vGet extension for chrome & modified firefox cast app
-
-Both are available from this repo
-
-Credits to original authors for their hard work, without which this mod could not be possible
-
+Credits to original authors and mozilla foundation for their hard work, without which this mod could not be possible
 
 ------
 
-Sideload the firefox receiver app to the roku by zipping the contents of the folder (NOT THE FOLDER ITSELF) and uploading via dev mode (instructions for sideloading are available on web).
+## Installation
+
+Create a zip file from the contents of the "Firefox Receiver Mod" folder.
+
+You should not be zipping the folder "Firefox Receiver Mod" itself. Instead, navigate inside that folder and create a zip file containing "images, json, source, manifest".
+
+Upload that zip file through roku dev mode.
 
 vGet extension can be installed via crx from chrome.
