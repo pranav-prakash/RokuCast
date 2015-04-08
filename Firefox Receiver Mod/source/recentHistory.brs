@@ -24,17 +24,15 @@ function createRecentHistory(server as object)
     this.screen.setGridStyle("two-row-flat-landscape-custom")
 
     this.screen.setupLists(2)
-    this.screen.setListNames(["History", "About Mozilla & Firefox"])
+    this.screen.setListNames(["History"])
 
     this.history[0] = getRecentHistory()
-    this.history[1] = getDefaultHistory()
     this.screen.setContentList(0, this.history[0])
-    this.screen.setContentList(1, this.history[1])
 
     this.selectInitialItem()
 
     ' Must be called after setupLists()
-    this.screen.setDescriptionVisible(false)
+    this.screen.setDescriptionVisible(true)
 
     this.screen.show()
 
@@ -111,7 +109,7 @@ function history_eventLoop()
 end function
 
 sub history_clearItem(url as dynamic)
-    result = showMessage("Firefox", "Do you want to remove this video from history?", ["Yes", "No"])
+    result = showMessage("RokuCast", "Do you want to remove this video from history?", ["Yes", "No"])
     if result = 0 then
         removeFromHistory({ url: url })
 
@@ -123,7 +121,7 @@ sub history_clearItem(url as dynamic)
 end sub
 
 sub history_clearHistory()
-    result = showMessage("Firefox", "Do you want to clear all history?", ["Yes", "No"])
+    result = showMessage("RokuCast", "Do you want to clear all history?", ["Yes", "No"])
     if result = 0 then
         clearHistory()
         m.screen.close()
@@ -141,7 +139,7 @@ function getRecentHistory() as object
             list.push({
                 Title: video.title
                 Description: video.description
-                HDPosterUrl: video.poster
+                HDPosterUrl: "pkg:/images/history.png"
                 SDPosterUrl: video.poster
                 videoURL: video.url
                 removable: true
