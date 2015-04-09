@@ -2,9 +2,8 @@
 ' License, v. 2.0. If a copy of the MPL was not distributed with this file,
 ' You can obtain one at http://mozilla.org/MPL/2.0/.
 
-function createRecentHistory(server as object)
+function createRecentHistory()
     this = {
-        server: server
         port: createObject("roMessagePort")
         screen: createObject("roGridScreen")
         history: []
@@ -20,15 +19,16 @@ function createRecentHistory(server as object)
     ' Set up the grid before calling setupLists()
     this.screen.setBreadcrumbText("Home", "Recent History")
     this.screen.setUpBehaviorAtTopRow("stop")
-    this.screen.setDisplayMode("scale-to-fill")
-    this.screen.setGridStyle("two-row-flat-landscape-custom")
+    this.screen.setDisplayMode("photo-fit")
+    this.screen.setGridStyle("flat-movie")
 
-    this.screen.setupLists(2)
+    this.screen.setupLists(1)
     this.screen.setListNames(["History"])
 
     this.history[0] = getRecentHistory()
+    this.history[1] = getDefaultHistory()
     this.screen.setContentList(0, this.history[0])
-
+    this.screen.setContentList(1, this.history[1])
     this.selectInitialItem()
 
     ' Must be called after setupLists()
@@ -52,10 +52,6 @@ end sub
 
 function history_eventLoop()
     while (true)
-        if m.server <> invalid then
-            m.server.processEvents()
-        end if
-
         event = wait(0, m.screen.getMessagePort())
         if type(event) = "roGridScreenEvent" then
             print "msg= "; event.getMessage() " , index= "; event.getIndex(); " data= "; event.getData()
@@ -68,10 +64,23 @@ function history_eventLoop()
                 row = event.getIndex()
                 selection = event.getData()
                 print "list item selected row= "; row; " selection= "; selection
+
+                url = m.history[row][selection].videoURL
+
+                isHLS = false
+
+                isPlexStream = CreateObject("roRegex", "&mediaIndex=0&partIndex=0&protocol=hls", "")
+
+                if (isPlexStream.IsMatch(url))
+                    isHLS = true
+                end if
+
                 videoParams = {
-                    url: m.history[row][selection].videoURL
+                    url: url
                 }
-                displayVideo(videoParams)
+
+                displayVideo(videoParams, isHLS)
+
             else if event.isRemoteKeyPressed() then
                 if event.getIndex() = 0 then '<BACK>
                     m.screen.close()
@@ -135,15 +144,22 @@ function getRecentHistory() as object
     json = registryRead("history")
     if json <> invalid then
         history = parseJSON(json)
+        i = 1
+        transfer1 = CreateObject("roUrlTransfer")
+        transfer1.SetCertificatesFile("common:/certs/ca-bundle.crt")
+        transfer1.SetCertificatesDepth(3)
         for each video in history
+            transfer1.SetUrl(video.poster)
+            transfer1.GetToFile("tmp:/" + str(i))
             list.push({
                 Title: video.title
                 Description: video.description
-                HDPosterUrl: "pkg:/images/history.png"
-                SDPosterUrl: video.poster
+                HDPosterUrl: "tmp:/" + str(i)
+                SDPosterUrl: "tmp:/" + str(i)
                 videoURL: video.url
                 removable: true
             })
+            i = i + 1
         end for
         return list
     end if
@@ -152,19 +168,7 @@ function getRecentHistory() as object
 end function
 
 function getDefaultHistory() as object
-    jsonAsString = readAsciiFile("pkg:/json/defaults.json")
-    history = parseJSON(jsonAsString)
     list = []
-    for each video in history
-        list.push({
-            Title: video.title
-            Description: video.description
-            HDPosterUrl: video.poster
-            SDPosterUrl: video.poster
-            videoURL: video.url
-            removable: false
-        })
-    end for
     return list
 end function
 
@@ -188,8 +192,8 @@ function saveToHistory(args as dynamic)
 
     history.push({
         title: args.title
-        description: "Empty"
-        poster: ""
+        description: args.title
+        poster: args.poster
         url: args.url
     })
 

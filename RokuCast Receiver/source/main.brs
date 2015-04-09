@@ -3,14 +3,12 @@
 ' You can obtain one at http://mozilla.org/MPL/2.0/.
 
 sub main(params as dynamic)
-    this = {
-        port: createObject("roMessagePort")
-        screen: createObject("roListScreen")
-        content: main_getContentList()
-        eventLoop: main_eventLoop
-    }
-
-    server = setupServer()
+    this =  {
+            port: createObject("roMessagePort")
+            screen: createObject("roListScreen")
+            content: main_getContentList()
+            eventLoop: main_eventLoop
+        }
 
     ' Setup the applicationtheme
     initTheme()
@@ -25,59 +23,65 @@ sub main(params as dynamic)
     ' * Dev install:   "app-run-dev"
     ' * ECP:           "external-control" (we also pass a 'version')
     print "launch params: " params
+
     launch = "homescreen"
     version = 0
+
     if params <> invalid then
-        print "Got params"
         if params.source <> invalid then
-            print "Got source"
             launch = params.source
             if params.version <> invalid then
-                print "Got version"
+            
                 version = params.version.toInt()
+
+                isHLS = false
+
+                isPlexStream = CreateObject("roRegex", "&mediaIndex=0&partIndex=0&protocol=http", "")
+
+                if (isPlexStream.IsMatch(params.url))
+                    params.url = isPlexStream.replace(params.url, "&mediaIndex=0&partIndex=0&protocol=hls")
+                    isHLS = true
+                end if
+
+                if (params.image = invalid)
+                    params.image = ""
+                end if
+
                 print params.url
                 print params.title
+                print params.image
 
                 videoParams = {
-                            url: params.url
-                            title: params.title
-                        }
+                        url: params.url
+                        title: params.title
+                        poster: params.image
+                    }
 
                         ' TODO: Only save the video to history if it launched successfully
                 saveToHistory(videoParams)
+                displayVideo(videoParams, isHLS)
 
-                displayVideo(videoParams)
             end if
         end if
     end if
 
     ' Only show the main screen if we were launched via home screen
-    if launch = "external-control" then
-        if version <> server.protocolVersion then
-            print "Bad version"
-            showMessage("Connection Error", "Unable to connect to Firefox.")
-        end if
-    else
-        print "show main screen"
-        this.screen.show()
-    end if
 
-    this.eventLoop(server)
-    server.close()
+    print "show main screen"
+    this.screen.show()
+    this.eventLoop()
 
     sleep(50)
 end sub
 
-function main_eventLoop(server as object)
+function main_eventLoop()
     while true
-        server.processEvents()
-
         event = wait(100, m.screen.getMessagePort())
         if type(event) = "roListScreenEvent" then
             if event.isListItemFocused() then
                 m.screen.setBreadcrumbText(m.content[event.getIndex()].Title, "")
             else if event.isListItemSelected() then
-                m.content[event.getIndex()].handler(server)
+                m.content[event.getIndex()].handler()
             end if
         end if
     end while

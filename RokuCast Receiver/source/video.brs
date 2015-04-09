@@ -1,4 +1,4 @@
-Function displayVideo(args As Dynamic)
+Function displayVideo(args As Dynamic, isHLS as Dynamic)
     print "Displaying video: "
     p = CreateObject("roMessagePort")
     video = CreateObject("roVideoScreen")
@@ -15,6 +15,9 @@ Function displayVideo(args As Dynamic)
     ' WABC test stream from upLynk
       qualities = ["HD"]
       streamformat = "mp4"
+      if (isHLS)
+        streamformat = "hls"
+      end if
       srt = ""
 
     videoclip = CreateObject("roAssociativeArray")
