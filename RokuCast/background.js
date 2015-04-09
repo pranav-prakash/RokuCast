@@ -20,7 +20,7 @@ function openApp(msg)
             console.log(title);
             console.log(favIconURL);
 
-            var url = "http://" + ip + ":8060/launch/dev?version=1" + "&url=" + encodeURIComponent(msg.sentLink) + "&title=" + encodeURIComponent(title) + "&image=" + encodeURIComponent(favIconURL);
+            var url = "http://" + ip + ":8060/launch/59310?version=1" + "&url=" + encodeURIComponent(msg.sentLink) + "&title=" + encodeURIComponent(title) + "&image=" + encodeURIComponent(favIconURL);
             var method = "POST";
             var postData = "";
             var async = true;
