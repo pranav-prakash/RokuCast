@@ -8,12 +8,12 @@ chrome.runtime.onMessage.addListener(function (msg)
 
 function openApp(msg)
 {
-    if (localStorage["textBox" + 1] != undefined)
+    if (localStorage["ipAddress"] != undefined)
     {
         chrome.tabs.query({active:true,windowType:"normal", currentWindow: true},
         function(tabs)
         {
-            var ip = localStorage["textBox" + 1];
+            var ip = localStorage["ipAddress"];
             var title = tabs[0].title;
             var favIconURL = tabs[0].favIconUrl;
             console.log(tabs);
