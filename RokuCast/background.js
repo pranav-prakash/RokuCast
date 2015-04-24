@@ -8,19 +8,19 @@ chrome.runtime.onMessage.addListener(function (msg)
 
 function openApp(msg)
 {
-    if (localStorage["textBox" + 1] != undefined)
+    if (localStorage["ipAddress"] != undefined)
     {
         chrome.tabs.query({active:true,windowType:"normal", currentWindow: true},
         function(tabs)
         {
-            var ip = localStorage["textBox" + 1];
+            var ip = localStorage["ipAddress"];
             var title = tabs[0].title;
             var favIconURL = tabs[0].favIconUrl;
             console.log(tabs);
             console.log(title);
             console.log(favIconURL);
 
-            var url = "http://" + ip + ":8060/launch/dev?version=1" + "&url=" + encodeURIComponent(msg.sentLink) + "&title=" + encodeURIComponent(title) + "&image=" + encodeURIComponent(favIconURL);
+            var url = "http://" + ip + ":8060/launch/59310?version=1" + "&url=" + encodeURIComponent(msg.sentLink) + "&title=" + encodeURIComponent(title) + "&image=" + encodeURIComponent(favIconURL);
             var method = "POST";
             var postData = "";
             var async = true;
