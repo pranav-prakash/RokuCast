@@ -7,29 +7,33 @@ Credits to original authors and mozilla foundation for their hard work, without 
 
 ## Installation
 
-### Dev mode installation (Simple)
+### Roku App
 
-Create a zip file from the contents of the "Firefox Receiver Mod" folder.
+In your browser go to https://owner.roku.com/add/R5CZ2J (you might have to log in to your roku account and then click this link again)
 
-You should not be zipping the folder "Firefox Receiver Mod" itself. Instead, navigate inside that folder and create a zip file containing "images, json, source, manifest".
-
-Upload that zip file through roku dev mode.
-
-### Private Channel installation (Slightly more complex)
-
-To do this method you need experience in packaging and uploading apps to the roku store.
-
-First follow the steps for dev mode installation to upload the zip to your device. Then go to the packager link in the dev page (requires that you have keyed your roku with a generated private key - look into genkey to find more info) and package your application. Once done, create a roku dev account and upload your generated package as a private channel. Then go to ROKUIP:8060/query/apps in your browser and note down the app id for RokuCast. Finally, modify the line in `RokuCast/RokuCast/background.js`
-
-`var url = "http://" + ip + ":8060/launch/dev?version=1" + "&url=" + encodeURIComponent(msg.sentLink) + "&title=" + encodeURIComponent(title) + "&image=" + encodeURIComponent(favIconURL);` by replacing `dev` with the noted down app id. Add the unpacked extension to chrome (subsequently generate a crx if your want) and enjoy.
+Then go into your roku settings and check for updates -- the app should install automatically
 
 -----
 
-Install the vGet extension in google chrome by going to chrome -> preferences -> extensions and dragging/dropping the .crx file into that window. 
+### Chrome Extension
+
+Download "RokuCast-Chrome.zip" from the releases page (https://github.com/pranav-prakash/RokuCast/releases) and unzip it.
+
+Note that deleting the folder will delete the extension, so you might want to move the unzipped folder to a good location beforehand.
+
+Then in Chrome navigate to preferences -> extensions and enable "developer mode" by clicking on the upper-right checkbox.
+
+Then click "Load Unpacked Extension" and browse to the unzipped folder (RokuCast-Chrome).
+
+You should see the extension appear in the corner.
 
 ## Usage
 
-Once installed, navigate to any site containing html5 content [this site](https://people.mozilla.org/~mfinkle/casting/test.html) for example, and you will see a brown download icon appear in the URL bar. Click on that, select the video to cast, and enter the IP address for your roku.
+Before you use the extension, you will have to enter the IP Address for your roku into it.
+
+Inside the extension, click on the settings cog in the lower right hand corner and enter the IP address for your roku in the text box. Your Roku's IP address can be found in the network section of Roku's preferences.
+
+Once installed, navigate to any site containing html5 content [this site](https://people.mozilla.org/~mfinkle/casting/test.html) for example, and click on the cast button in the omnibar. You should see a list of all castable content, and an option to either download or cast it. Click on the cast button, and the video should automatically start playing on your roku.
 
 ## Supported Formats / Limitations
 
