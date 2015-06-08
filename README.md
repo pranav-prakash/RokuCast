@@ -9,9 +9,7 @@ Credits to original authors and mozilla foundation for their hard work, without 
 
 ### Roku App
 
-In your browser go to https://owner.roku.com/add/R5CZ2J (you might have to log in to your roku account and then click this link again)
-
-Then go into your roku settings and check for updates -- the app should install automatically
+Upload zip file to your roku in development mode
 
 -----
 
