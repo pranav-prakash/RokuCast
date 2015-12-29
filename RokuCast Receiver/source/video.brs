@@ -4,36 +4,41 @@ Function displayVideo(args As Dynamic, isHLS as Dynamic)
     video = CreateObject("roVideoScreen")
     video.setMessagePort(p)
 
-     bitrates  = [0]      ' 0 = no dots, adaptive bitrate
-    'bitrates  = [348]    ' <500 Kbps = 1 dot
-    'bitrates  = [664]    ' <800 Kbps = 2 dots
-    'bitrates  = [996]    ' <1.1Mbps  = 3 dots
-    'bitrates  = [2048]   ' >=1.1Mbps = 4 dots
+    bitrates  = [0, 0]      ' 0 = no dots, default bitrate
    
-    ' Uncomment this entry. Replace urls with the red urls assignment using your Playback URL from the upLynk CMS.
-    ' Change qualities to HD.  Add the srt = "" to avoid a missing assignment error in Roku's code.
-    ' WABC test stream from upLynk
-      qualities = ["HD"]
-      streamformat = "mp4"
-      if (isHLS)
+    'Add the srt = "" to avoid a missing assignment error in Roku's code.
+
+    qualities = ["HD", "SD"]
+    streamformat = "mp4"
+    if (isHLS)
         streamformat = "hls"
-      end if
-      srt = ""
+    end if
+    srt = ""
 
     videoclip = CreateObject("roAssociativeArray")
     videoclip.StreamBitrates = bitrates
-    videoclip.StreamUrls = [args.url]
+    videoclip.StreamUrls = [args.url, args.url]
     videoclip.StreamQualities = qualities
-    videoclip.StreamFormat = StreamFormat
+    videoclip.StreamFormat = streamformat
     videoclip.Title = [args.title]
+
     ' Explicity declare the Switching Strategy
     videoclip.SwitchingStrategy = "full-adaptation"
+
     print "srt = ";srt
     if srt <> invalid and srt <> "" then
         videoclip.SubtitleUrl = srt
     end if
+
+    print videoclip
+    print videoclip.StreamUrls
+    print videoclip.StreamQualities
+    print videoclip.StreamBitrates
+    print videoclip.StreamFormat
+    print videoclip.Title
     
     video.SetContent(videoclip)
+    
     ' The following lines of code work around Roku's HTTPS request issues
     video.SetCertificatesFile("common:/certs/ca-bundle.crt")
     video.SetCertificatesDepth(3)
@@ -59,7 +64,7 @@ Function displayVideo(args As Dynamic, isHLS as Dynamic)
                     end if
                 end if
             else if msg.isRequestFailed()
-                print "play failed: "; msg.GetMessage()
+                print "play failed: " + str(msg.GetIndex())
             else
                 print "Unknown event: "; msg.GetType(); " msg: "; msg.GetMessage()
             endif
