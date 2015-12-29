@@ -7,6 +7,8 @@ Credits to original authors and mozilla foundation for their hard work, without 
 
 ## Installation
 
+Note that the chrome extension in this branch will only work with the receiver as a private channel. If you want to sideload the receiver in development mode use the chrome extension in the `master` branch.
+
 ### Roku App
 
 Install the app as a private channel with code `CL9D5D`
