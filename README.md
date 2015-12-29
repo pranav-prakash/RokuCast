@@ -9,23 +9,23 @@ Credits to original authors and mozilla foundation for their hard work, without 
 
 ### Roku App
 
-Upload zip file to your roku in development mode
+Install the app as a private channel with code `CL9D5D`
 
 -----
 
 ### Chrome Extension
 
-Download "RokuCast-Chrome.zip" from the releases page (https://github.com/pranav-prakash/RokuCast/releases) and unzip it.
-
-Note that deleting the folder will delete the extension, so you might want to move the unzipped folder to a good location beforehand.
-
-Then in Chrome navigate to preferences -> extensions and enable "developer mode" by clicking on the upper-right checkbox.
-
-Then click "Load Unpacked Extension" and browse to the unzipped folder (RokuCast-Chrome).
-
+Download the .crx extension file and drag/drop it to the extension page (chrome://extensions).
 You should see the extension appear in the corner.
 
+If this doesn't work (perhaps in the future Chrome disables non app-store extensions?) then you can install it as an unpacked extension. In Chrome navigate to preferences -> extensions and enable "developer mode" by clicking on the upper-right checkbox.
+
+Then click "Load Unpacked Extension" and browse to the folder called `RokuCast`.
+
+
 ## Usage
+
+Once the Chrome extension has been installed, you should see the extension appear in the corner.
 
 Before you use the extension, you will have to enter the IP Address for your roku into it.
 
