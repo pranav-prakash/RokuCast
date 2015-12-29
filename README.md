@@ -7,19 +7,31 @@ Credits to original authors and mozilla foundation for their hard work, without 
 
 ## Installation
 
-Create a zip file from the contents of the "Firefox Receiver Mod" folder.
+### Roku App
 
-You should not be zipping the folder "Firefox Receiver Mod" itself. Instead, navigate inside that folder and create a zip file containing "images, json, source, manifest".
-
-Upload that zip file through roku dev mode.
+Upload zip file to your roku in development mode
 
 -----
 
-Install the vGet extension in google chrome by going to chrome -> preferences -> extensions and dragging/dropping the .crx file into that window. 
+### Chrome Extension
+
+Download "RokuCast-Chrome.zip" from the releases page (https://github.com/pranav-prakash/RokuCast/releases) and unzip it.
+
+Note that deleting the folder will delete the extension, so you might want to move the unzipped folder to a good location beforehand.
+
+Then in Chrome navigate to preferences -> extensions and enable "developer mode" by clicking on the upper-right checkbox.
+
+Then click "Load Unpacked Extension" and browse to the unzipped folder (RokuCast-Chrome).
+
+You should see the extension appear in the corner.
 
 ## Usage
 
-Once installed, navigate to any site containing html5 content [this site](https://people.mozilla.org/~mfinkle/casting/test.html) for example, and you will see a brown download icon appear in the URL bar. Click on that, select the video to cast, and enter the IP address for your roku.
+Before you use the extension, you will have to enter the IP Address for your roku into it.
+
+Inside the extension, click on the settings cog in the lower right hand corner and enter the IP address for your roku in the text box. Your Roku's IP address can be found in the network section of Roku's preferences.
+
+Once installed, navigate to any site containing html5 content [this site](https://people.mozilla.org/~mfinkle/casting/test.html) for example, and click on the cast button in the omnibar. You should see a list of all castable content, and an option to either download or cast it. Click on the cast button, and the video should automatically start playing on your roku.
 
 ## Supported Formats / Limitations
 
