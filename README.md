@@ -7,25 +7,16 @@ Credits to original authors and mozilla foundation for their hard work, without 
 
 ## Installation
 
-### Roku App
+The `master` branch holds a version of the version of the Roku receiver and Chrome extension suitable for development and debugging purposes. The Roku app (RokuCast-Receiver.zip) should be installed via development mode and the Chrome extension should be installed as an unpacked extension (folder is "RokuCast").
 
-Upload zip file to your roku in development mode
+Switch to the `Production` branch for a finished version suitable for daily use.
 
------
+---
 
-### Chrome Extension
-
-Download "RokuCast-Chrome.zip" from the releases page (https://github.com/pranav-prakash/RokuCast/releases) and unzip it.
-
-Note that deleting the folder will delete the extension, so you might want to move the unzipped folder to a good location beforehand.
-
-Then in Chrome navigate to preferences -> extensions and enable "developer mode" by clicking on the upper-right checkbox.
-
-Then click "Load Unpacked Extension" and browse to the unzipped folder (RokuCast-Chrome).
-
-You should see the extension appear in the corner.
 
 ## Usage
+
+Once the Chrome extension has been installed, you should see the extension appear in the corner.
 
 Before you use the extension, you will have to enter the IP Address for your roku into it.
 
