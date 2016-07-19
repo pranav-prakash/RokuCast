@@ -37,9 +37,14 @@ sub main(params as dynamic)
                 isHLS = false
 
                 isPlexStream = CreateObject("roRegex", "&mediaIndex=0&partIndex=0&protocol=http", "")
+                isM3U8 = CreateObject("roRegex", "m3u8", "")
 
                 if (isPlexStream.IsMatch(params.url))
                     params.url = isPlexStream.replace(params.url, "&mediaIndex=0&partIndex=0&protocol=hls")
+                    isHLS = true
+                end if
+                
+                if (isM3U8.IsMatch(params.url))
                     isHLS = true
                 end if
 
