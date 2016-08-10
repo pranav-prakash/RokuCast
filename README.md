@@ -20,7 +20,9 @@ Install the app as a private channel with code `CL9D5D`
 Download the .crx extension file and drag/drop it to the extension page (chrome://extensions).
 You should see the extension appear in the corner.
 
-If this doesn't work (perhaps in the future Chrome disables non app-store extensions?) then you can install it as an unpacked extension. In Chrome navigate to preferences -> extensions and enable "developer mode" by clicking on the upper-right checkbox.
+~~If this doesn't work (perhaps in the future Chrome disables non app-store extensions?) then you can install it as an unpacked extension.~~
+NOTE: Chrome no longer allows non-developer mode extensions to be installed.
+In Chrome navigate to preferences -> extensions and enable "developer mode" by clicking on the upper-right checkbox.
 
 Then click "Load Unpacked Extension" and browse to the folder called `RokuCast`.
 
