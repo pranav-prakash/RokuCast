@@ -20,7 +20,16 @@ function openApp(msg)
             console.log(title);
             console.log(favIconURL);
 
-            var url = "http://" + ip + ":8060/input/1598?t=v" + "&u=" + encodeURIComponent(msg.sentLink) + "&videoName=" + encodeURIComponent(title) + "&k=" + encodeURIComponent(favIconURL) + "&videoFormat=mp4";
+            var isHLS = msg.sentLink.indexOf("m3u8") != -1;
+            var isPlexStream = msg.sentLink.indexOf("&mediaIndex=0&partIndex=0&protocol=http") != -1;
+
+            if (isPlexStream)
+            {
+                msg.sentLink.replace(new RegExp("&mediaIndex=0&partIndex=0&protocol=http", 'g'), "&mediaIndex=0&partIndex=0&protocol=hls");
+                isHLS = true
+            }
+
+            var url = "http://" + ip + ":8060/input/15985?t=v" + "&u=" + encodeURIComponent(msg.sentLink) + "&videoName=" + encodeURIComponent(title) + "&k=" + encodeURIComponent(favIconURL) + "&videoFormat=" + (isHLS ? "hls" : "mp4");
             var method = "POST";
             var postData = "";
             var async = true;
