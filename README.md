@@ -1,15 +1,20 @@
 # RokuCast
 Cast videos from chrome to roku
 
-Comprised of a modified vGet extension and modified firefox cast app.
+Comprised of a modified vGet extension
 
 Credits to original authors and mozilla foundation for their hard work, without which this mod could not be possible
 
+Experimental? version which uses native PlayOnRoku functionality (same one used by roku mobile app)
+
 ## Installation
 
-The `master` branch holds a version of the version of the Roku receiver and Chrome extension suitable for development and debugging purposes. The Roku app (RokuCast-Receiver.zip) should be installed via development mode and the Chrome extension should be installed as an unpacked extension (folder is "RokuCast").
+This `playOnRoku` branch holds an experimental version of the extension which does not need a companion app, instead using Roku's native video player.
 
-Switch to the `Production` branch for a finished version suitable for daily use.
+
+Switch to the `Production` branch for the version with the companion channel.
+
+
 
 ---
 

@@ -20,7 +20,7 @@ function openApp(msg)
             console.log(title);
             console.log(favIconURL);
 
-            var url = "http://" + ip + ":8060/launch/dev?version=1" + "&url=" + encodeURIComponent(msg.sentLink) + "&title=" + encodeURIComponent(title) + "&image=" + encodeURIComponent(favIconURL);
+            var url = "http://" + ip + ":8060/input/1598?t=v" + "&u=" + encodeURIComponent(msg.sentLink) + "&videoName=" + encodeURIComponent(title) + "&k=" + encodeURIComponent(favIconURL) + "&videoFormat=mp4";
             var method = "POST";
             var postData = "";
             var async = true;
