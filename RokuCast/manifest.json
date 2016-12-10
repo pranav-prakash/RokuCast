@@ -1,4 +1,4 @@
-{
+   {
    "background": {
       "page": "background.html"
    },
@@ -22,6 +22,6 @@
    "name": "RokuCast",
    "options_page": "options.html",
    "optional_permissions": [  ],
-   "permissions": [ "\u003Call_urls>", "downloads", "tabs" ],
-   "version": "0.1.10"
+   "permissions": [ "\u003Call_urls>", "downloads", "tabs", "contextMenus"],
+   "version": "0.1.11"
 }
