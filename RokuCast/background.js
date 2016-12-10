@@ -1,3 +1,12 @@
+chrome.contextMenus.create({
+    "title": "Cast to Roku",
+    "onclick": function(e) {
+        openApp({'sentLink': e.linkUrl})
+    },
+    "contexts": ["link"]
+})
+
+
 chrome.runtime.onMessage.addListener(function (msg)
 {
     if (msg.type == "open")
