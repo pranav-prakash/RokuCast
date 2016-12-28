@@ -29,7 +29,7 @@ function openApp(msg)
             console.log(title);
             console.log(favIconURL);
 
-            var isHLS = msg.sentLink.indexOf("m3u8") != -1;
+            var isHLS = msg.sentLink.indexOf("m3u") != -1;
             var isPlexStream = msg.sentLink.indexOf("&mediaIndex=0&partIndex=0&protocol=http") != -1;
 
             if (isPlexStream)
