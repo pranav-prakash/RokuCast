@@ -38,7 +38,7 @@ function openApp(msg)
                 isHLS = true
             }
 
-            var url = "http://" + ip + ":8060/input/15985?t=v" + "&u=" + encodeURIComponent(msg.sentLink) + "&videoName=" + encodeURIComponent(title) + "&k=" + encodeURIComponent(favIconURL) + "&videoFormat=" + (isHLS ? "hls" : "mp4");
+            var url = "http://" + ip + ":8060/input/15985?t=v" + "&u=" + encodeURIComponent(msg.sentLink) + "&videoName=" + encodeURIComponent(title) + "&k=(null)" + "&videoFormat=" + (isHLS ? "hls" : "mp4");
             var method = "POST";
             var postData = "";
             var async = true;
