@@ -9,12 +9,13 @@ Experimental? version which uses native PlayOnRoku functionality (same one used 
 
 ## Installation
 
-This `playOnRoku` branch holds an experimental version of the extension which does not need a companion app, instead using Roku's native video player.
+Chrome Extension
 
+First download the [zip file](https://github.com/pranav-prakash/RokuCast/archive/playOnRoku.zip) of the repo and unzip it on to the desktop:
 
-Switch to the `Production` branch for the version with the companion channel.
+In Chrome navigate to preferences -> extensions and enable "developer mode" by clicking on the upper-right checkbox.
 
-
+Then click "Load Unpacked Extension" and browse to the folder called RokuCast in the unzipped archive.
 
 ---
 
