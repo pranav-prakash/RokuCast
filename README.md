@@ -5,12 +5,15 @@ Comprised of a modified vGet extension and modified firefox cast app.
 
 Credits to original authors and mozilla foundation for their hard work, without which this mod could not be possible
 
+This `master` branch holds a version of the version of the Roku receiver and Chrome extension suitable for development and debugging purposes. Switch to the `PlayOnRoku` branch for a finished version suitable for daily use.
+
 ## Installation
 
-The `master` branch holds a version of the version of the Roku receiver and Chrome extension suitable for development and debugging purposes. The Roku app (RokuCast-Receiver.zip) should be installed via development mode and the Chrome extension should be installed as an unpacked extension (folder is "RokuCast").
+#Roku App
 
-Switch to the `Production` branch for a finished version suitable for daily use.
+To install the Roku app you need to enable development mode on your Roku box (follow online instructions for that). To then sideload the app, first zip the contents of the `RokuCast Receiver` folder (so go into the folder, control-A to select the three items, right click and zip it). Then upload that zip file to the Roku.
 
+To install the Chrome extension, enable development mode on Chrome, click load unpacked extension, and go to the `RokuCast` folder.
 ---
 
 
