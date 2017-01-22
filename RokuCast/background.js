@@ -37,16 +37,20 @@ function openApp(msg)
                 msg.sentLink.replace(new RegExp("&mediaIndex=0&partIndex=0&protocol=http", 'g'), "&mediaIndex=0&partIndex=0&protocol=hls");
                 isHLS = true
             }
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open('HEAD', msg.sentLink, true);
+            xhr.onload = function () {
+                var url = "http://" + ip + ":8060/input/15985?t=v" + "&u=" + encodeURIComponent(xhr.responseURL) + "&videoName=" + encodeURIComponent(title) + "&k=(null)" + "&videoFormat=" + (isHLS ? "hls" : "mp4");
+                var method = "POST";
+                var postData = "";
+                var async = true;
 
-            var url = "http://" + ip + ":8060/input/15985?t=v" + "&u=" + encodeURIComponent(msg.sentLink) + "&videoName=" + encodeURIComponent(title) + "&k=(null)" + "&videoFormat=" + (isHLS ? "hls" : "mp4");
-            var method = "POST";
-            var postData = "";
-            var async = true;
-
-            var request = new XMLHttpRequest();
-            request.open(method, url, async);
-            request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-            request.send(postData);
+                var request = new XMLHttpRequest();
+                request.open(method, url, async);
+                request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                request.send(postData);
+            };
         })
     }
     else
