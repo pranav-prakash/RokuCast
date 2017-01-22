@@ -39,7 +39,7 @@ Thanks to ph0rn there's also a context menu item so you can right click on video
 
 ## Supported Formats / Limitations
 
-The extension supports the subset of formats the roku can play (mp4 mainly). 
+The extension supports the subset of formats the roku can play (mp4 and m3u8/HLS live stream mainly). 
 
 It will work on the majority of sites using an html5 video player (and in a few specific cases also works on flash sites.. worth trying out). Note that some websites will only offer the content in an html5 format to mobile devices, so you could try spoofing user-agent (install a chrome extension to do so).
 
@@ -47,6 +47,8 @@ If you get a couldn't cast message, things worth trying out:
 
 * Spoof user agent to mobile (see previous paragraph). Some websites have switched to blob method of playback which doesn't embed the video URL directly in the DOM, instead having it point to a localstorage object. Switching to mobile seems to alleviate this.
 * Note that YouTube (and maybe vimeo/dailymotion) is one of the sites that does that, so if you want to cast YouTube videos using this, spoof your user-agent. Of course YouTube has its own app for Roku with cast support, so you could just use that.
+
+If that doesn't help, open an issue and I'll look into it.
 
 ## Todo:
 
