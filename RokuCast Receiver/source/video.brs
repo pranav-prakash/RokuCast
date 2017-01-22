@@ -41,6 +41,8 @@ Function displayVideo(args As Dynamic, isHLS as Dynamic)
     
     ' The following lines of code work around Roku's HTTPS request issues
     video.SetCertificatesFile("common:/certs/ca-bundle.crt")
+    video.AddHeader ("User-Agent", "Chrome")
+    video.EnableCookies()
     video.SetCertificatesDepth(3)
     video.show()
 
@@ -64,7 +66,7 @@ Function displayVideo(args As Dynamic, isHLS as Dynamic)
                     end if
                 end if
             else if msg.isRequestFailed()
-                print "play failed: " + str(msg.GetIndex())
+                print "request failed - error: "; msg.GetIndex();" - "; msg.GetMessage()
             else
                 print "Unknown event: "; msg.GetType(); " msg: "; msg.GetMessage()
             endif
