@@ -51,6 +51,7 @@ function openApp(msg)
                 request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
                 request.send(postData);
             };
+            xhr.send(null);
         })
     }
     else
