@@ -15,13 +15,14 @@ To install the Roku app you need to enable development mode on your Roku box (fo
 
 # Chrome extension
 
-First download the (zip file)[https://github.com/pranav-prakash/RokuCast/archive/master.zip] of the repo and unzip it on to the desktop:
+First download the [zip file](https://github.com/pranav-prakash/RokuCast/archive/master.zip) of the repo and unzip it on to the desktop:
 
 In Chrome navigate to preferences -> extensions and enable "developer mode" by clicking on the upper-right checkbox.
 
 Then click "Load Unpacked Extension" and browse to the folder called RokuCast in the unzipped archive.
 
 Note that this extension is different from the one you may have previously installed in the PlayOnRoku branch. Please delete that extension before installing this one.
+
 ---
 
 
