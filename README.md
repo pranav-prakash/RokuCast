@@ -9,11 +9,19 @@ This `master` branch holds a version of the version of the Roku receiver and Chr
 
 ## Installation
 
-#Roku App
+# Roku App
 
 To install the Roku app you need to enable development mode on your Roku box (follow online instructions for that). To then sideload the app, first zip the contents of the `RokuCast Receiver` folder (so go into the folder, control-A to select the three items, right click and zip it). Then upload that zip file to the Roku.
 
-To install the Chrome extension, enable development mode on Chrome, click load unpacked extension, and go to the `RokuCast` folder.
+# Chrome extension
+
+First download the (zip file)[https://github.com/pranav-prakash/RokuCast/archive/master.zip] of the repo and unzip it on to the desktop:
+
+In Chrome navigate to preferences -> extensions and enable "developer mode" by clicking on the upper-right checkbox.
+
+Then click "Load Unpacked Extension" and browse to the folder called RokuCast in the unzipped archive.
+
+Note that this extension is different from the one you may have previously installed in the PlayOnRoku branch. Please delete that extension before installing this one.
 ---
 
 
