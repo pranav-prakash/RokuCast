@@ -8,7 +8,7 @@ This branch holds the experimental version which makes use of Roku's native remo
 
 Even though it is experimental, it has been tested by several people and should work fine. This branch is the one most people should use.
 
-In some very specific cases, you may need to use the version with the companion channel that can be found in the production branch. For instance, if you need to spoof user-agent of the Roku or want to access play history, the companion channel lets you do that.
+In some very specific cases, you may need to use the version with the companion channel that can be found in the ~~production~~ master branch (the production branch is not being updated and should not really used since it lacks some new features (such as slightly better compatibility for videos) . For instance, if you need to spoof user-agent of the Roku or want to access play history, the companion channel lets you do that.
 
 The master branch holds a version similar to the production branch except it may be more bleeding-edge and uses a sideloaded version of the companion channel instead of having the companion installed as a private channel. Useful if you use a sky now tv or similar box that only allows sideloaded custom channels.
 
