@@ -6,19 +6,24 @@
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="scripts/jquery.js"></script>
+    <script src="scripts/ssdp.js"></script>
     <title>RokuCast Options</title>
   </head>
 
   <body>
     <center>
       <br>
-      Roku IP Address:
-      <br><br>
+      Select your device (requires <a href="https://chrome.google.com/webstore/detail/ssdp-provider/pfdiljjcookjofjbjnbnkgfnfmnoljmk">ssdp-provider</a>)
+      <br>
+      <select id="devices">
+        <option value=""></option>
+          <!-- If detected, other options will be appended here -->
+      </select>
+      <br><br>... or enter an IP address manually<br>
       <input id="ip_address" size="2" style="text-align: center ; width:50%">
       <br><br><br><br><br><br>
       </input>
     </center>
-    <div class = "status" id = "status"></div>
     <div class="status hidden" id="status">Options saved.</div>
     <div class="settingsbuttons">
       <button class="btn btn-default btn-sm" id="save"><i class="fa fa-save"></i> Save</button>
