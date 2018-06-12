@@ -1,7 +1,7 @@
 // Saves options to chrome.storage
 function save_options() {
-  var ip_address = document.getElementById('ip_address').value;
-  localStorage['ipAddress'] = ip_address;
+    var ip_address = document.getElementById('ip_address').value;
+    localStorage['ipAddress'] = ip_address;
 
     var device_id = document.getElementById('devices').selectedOptions[0].id;
     localStorage['deviceID'] = device_id;
@@ -23,8 +23,7 @@ function setup() {
             var id = key.replace(/^uuid:roku:ecp:/,'');
             var ip = rokuDevices[key].location.match(/[0-9]{1,3}(\.[0-9]{1,3}){3}/)[0];
 
-            $('#devices').append('<option value="' + ip + '" id="' + id + '">' +
-                id + ' (' + ip + ')</option>');
+            $('#devices').append('<option value="'+ip+'" id="'+id+'">'+id+' ('+ip+')</option>');
         }
 
         use_ip_address(localStorage['ipAddress']);

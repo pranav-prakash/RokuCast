@@ -11,19 +11,21 @@
   </head>
 
   <body>
-    <center>
-      <br>
-      Select your device (requires <a href="https://chrome.google.com/webstore/detail/ssdp-provider/pfdiljjcookjofjbjnbnkgfnfmnoljmk">ssdp-provider</a>)
-      <br>
-      <select id="devices">
-        <option value=""></option>
+    <form class="center-block text-center padding-top-lg input-group">
+      <p>
+        <label for="devices">Select your device (requires <a href="https://chrome.google.com/webstore/detail/ssdp-provider/pfdiljjcookjofjbjnbnkgfnfmnoljmk">ssdp-provider</a>)</label>
+        <select id="devices">
+          <option value=""></option>
           <!-- If detected, other options will be appended here -->
-      </select>
-      <br><br>... or enter an IP address manually<br>
-      <input id="ip_address" size="2" style="text-align: center ; width:50%">
-      <br><br><br><br><br><br>
-      </input>
-    </center>
+        </select>
+      </p>
+
+      <p>
+        <label for="ip_address">... or enter an IP address manually</label>
+        <input id="ip_address" class="text-center input-medium">
+      </p>
+    </form>
+
     <div class="status hidden" id="status">Options saved.</div>
     <div class="settingsbuttons">
       <button class="btn btn-default btn-sm" id="save"><i class="fa fa-save"></i> Save</button>
