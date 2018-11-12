@@ -7,13 +7,14 @@ var ssdp = {
       this._serverId,
       { request: _request, params: _params },
       function(response) {
-        if (response) {
-          if(response.error != null && _error != undefined) {
+          if (!response) {
+            _callback({});
+          }
+          else if(response.error != null && _error != undefined) {
             _error(response.error);
           }
           else {
             _callback(response.response);
-          }
         }
       }
     );

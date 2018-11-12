@@ -3,8 +3,10 @@ function save_options() {
     var ip_address = document.getElementById('ip_address').value;
     localStorage['ipAddress'] = ip_address;
 
-    var device_id = document.getElementById('devices').selectedOptions[0].id;
-    localStorage['deviceID'] = device_id;
+    if (document.getElementById('devices').selectedOptions[0]) {
+        var device_id = document.getElementById('devices').selectedOptions[0].id;
+        localStorage['deviceID'] = device_id;
+    }
 
     var status = document.getElementById('status');
     status.classList.remove('hidden');
@@ -47,7 +49,7 @@ function find_device(query) {
     var match_index = [...known_devices].findIndex(query);
 
     if (match_index === -1) {
-        match_index = 0;
+        return null;
     }
 
     return known_devices[match_index];
@@ -56,13 +58,18 @@ function find_device(query) {
 // Given a device ID, assigns values to the #ip_address and #device input fields
 function use_device_id(id) {
     var known_device = find_device(function(device) { return device.id === id; });
-    known_device.selected = true;
-    document.getElementById('ip_address').value = known_device.value;
+    if (known_device) {
+        known_device.selected = true;
+        document.getElementById('ip_address').value = known_device.value;
+    }
 }
 
 // Given an ip address, assigns values to the #ip_address and #device input fields
 function use_ip_address(ip) {
-    find_device(function(device) { return device.value === ip; }).selected = true;
+    var device = find_device(function(device) { return device.value === ip; });
+    if (device) {
+        device.selected = true;
+    }
     document.getElementById('ip_address').value = ip;
 }
 
