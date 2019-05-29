@@ -1,6 +1,8 @@
 # RokuCast
 Cast videos from Chrome to Roku
 
+** See also @dgreul's [fork](https://github.com/dgreuel/RokuKast) for a better version that properly introspects xhr requests **
+
 Comprised of a modified vGet extension
 Credits to original authors and mozilla foundation for their hard work, without which this mod could not be possible
 
