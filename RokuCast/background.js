@@ -41,7 +41,7 @@ function openApp(msg)
             var xhr = new XMLHttpRequest();
             xhr.open('HEAD', msg.sentLink, true);
             xhr.onload = function () {
-                var url = "http://" + ip + ":8060/input/15985?t=v" + "&u=" + encodeURIComponent(xhr.responseURL) + "&videoName=" + encodeURIComponent(title) + "&k=(null)" + "&videoFormat=" + (isHLS ? "hls" : "mp4");
+                var url = "http://" + ip + ":8060/input/15985?t=v" + "&u=" + encodeURIComponent(xhr.responseURL) + "&videoName=" + encodeURIComponent(title) + "&videoFormat=" + (isHLS ? "hls" : "mp4");
                 var method = "POST";
                 var postData = "";
                 var async = true;
