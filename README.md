@@ -4,6 +4,7 @@ Cast videos from Chrome to Roku
 **Also check out @dgreuel's [fork](https://github.com/dgreuel/RokuKast) for a better version that properly introspects xhr requests, so should be able to handle a wider variety of media sources**
 
 Comprised of a modified vGet extension
+
 Credits to original authors and mozilla foundation for their hard work, without which this mod could not be possible
 
 This branch holds the experimental version which makes use of Roku's native remote video player (the same one invoked when you play videos through the official roku mobile app) to avoid having to install a separate companion channel on the Roku.
